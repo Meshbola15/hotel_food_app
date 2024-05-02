@@ -11,14 +11,17 @@ import { StatusBar } from "expo-status-bar";
 import { AppStateContext } from "../Context/Context";
 import { COLORS, historyData } from "../Data/Data";
 import PaymentHistory from "../Components/paymentHistory";
+import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const HistoryPage = () => {
   const isDark = useContext(AppStateContext);
   const TransactionHeaderText = ["Date", "time", "transactionID", "type"];
+  const navigation = useNavigation();
   return (
     <SafeAreaView
       style={{
-        backgroundColor: `${isDark ? COLORS.black : COLORS.grey}`,
+        backgroundColor: `${isDark ? COLORS.white : COLORS.grey}`,
         //
         flex: 1,
       }}
@@ -39,13 +42,40 @@ const HistoryPage = () => {
                 backgroundColor: "orange",
                 paddingTop: 70,
                 paddingHorizontal: 20,
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "row",
               }}
             >
+              <TouchableOpacity
+                onPress={() => navigation.goBack()}
+                style={{
+                  backgroundColor: "rgba(212, 212, 212, .5)",
+                  borderRadius: 100 / 2,
+                  height: 40,
+                  width: 40,
+                  // position: "absolute",
+                  // top: 60,
+                  // left: 20,
+                  zIndex: 2,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: 20,
+                }}
+              >
+                <MaterialIcons
+                  name="keyboard-backspace"
+                  size={20}
+                  color="white"
+                />
+              </TouchableOpacity>
               <Text
                 style={{
                   fontSize: 30,
                   color: COLORS.white,
                   fontWeight: 600,
+
+                  // marginLeft: 20,
                 }}
               >
                 Transaction History
@@ -65,7 +95,7 @@ const HistoryPage = () => {
                 <Text
                   key={item}
                   style={{
-                    color: `${isDark ? COLORS.white : COLORS.grey}`,
+                    color: `${isDark ? COLORS.gray : COLORS.white}`,
                     fontSize: 20,
                     textTransform: "uppercase",
                     fontWeight: 600,

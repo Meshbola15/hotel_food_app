@@ -2,13 +2,11 @@ import {
   FlatList,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useContext, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import React, { useContext } from "react";
 import { hotels, suggestions, COLORS } from "../Data/Data";
 import Statusbarcon from "../Components/Statusbarcon";
 import { AppStateContext } from "../Context/Context";

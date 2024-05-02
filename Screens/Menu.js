@@ -2,7 +2,6 @@ import {
   View,
   Text,
   SafeAreaView,
-  ScrollView,
   FlatList,
   TouchableOpacity,
 } from "react-native";

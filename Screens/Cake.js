@@ -1,4 +1,3 @@
-import Octicons from "@expo/vector-icons/Octicons";
 import {
   FlatList,
   Image,
@@ -13,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { COLORS, foods, hotels, suggestions } from "../Data/Data";
+import { COLORS, foods, suggestions } from "../Data/Data";
 import { AppStateContext } from "../Context/Context";
 
 const Cake = () => {

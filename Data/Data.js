@@ -243,9 +243,24 @@ export const walletIconList = [
     pageLink: "/",
   },
   {
-    iconName: "History",
+    iconName: "Account History",
     iconImage: require("../assets/icons/cash.png"),
     pageLink: "History"
+  },
+  {
+    iconName: "Recieve Funds",
+    iconImage: require("../assets/icons/dollar.png"),
+    pageLink: "Recieve"
+  },
+  {
+    iconName: "Send Funds",
+    iconImage: require("../assets/icons/dollar_recieve.png"),
+    pageLink: "Send"
+  },
+  {
+    iconName: "Manage Account",
+    iconImage: require("../assets/icons/settings.png"),
+    pageLink: ""
   },
 ];
 

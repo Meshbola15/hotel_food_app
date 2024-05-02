@@ -20,13 +20,13 @@ const PaymentHistory = ({ props }) => {
         justifyContent: "space-between",
         flexDirection: "row",
         marginVertical: 20,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
       }}
     >
       <Text
         style={[
           styles.textStyle,
-          { color: isDark ? COLORS.white : COLORS.grey },
+          { color: isDark ? COLORS.black : COLORS.white },
         ]}
       >
         {props.date}
@@ -34,7 +34,7 @@ const PaymentHistory = ({ props }) => {
       <Text
         style={[
           styles.textStyle,
-          { color: isDark ? COLORS.white : COLORS.grey },
+          { color: isDark ? COLORS.black : COLORS.white },
         ]}
       >
         {props.time}
@@ -42,7 +42,7 @@ const PaymentHistory = ({ props }) => {
       <Text
         style={[
           styles.textStyle,
-          { color: isDark ? COLORS.white : COLORS.grey },
+          { color: isDark ? COLORS.black : COLORS.white },
         ]}
       >
         {sliceTransactionXID}
@@ -50,7 +50,7 @@ const PaymentHistory = ({ props }) => {
       <Text
         style={[
           styles.textStyle,
-          { color: isDark ? COLORS.white : COLORS.grey },
+          { color: isDark ? COLORS.black : COLORS.white },
         ]}
       >
         {props.type}
@@ -62,7 +62,5 @@ const PaymentHistory = ({ props }) => {
 export default PaymentHistory;
 
 const styles = StyleSheet.create({
-  textStyle: {
-  
-  },
+  textStyle: {},
 });

@@ -11,6 +11,7 @@ import AppStateProvider from "./Context/Context";
 import Profile from "./Screens/Profile";
 import Settings from "./Screens/Settings";
 import HistoryPage from "./Screens/History";
+import LogOut from "./Screens/LogOut";
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ const App = () => {
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Settings" component={Settings} />
           <Stack.Screen name="History" component={HistoryPage} />
+          <Stack.Screen name="Login" component={LogOut} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppStateProvider>

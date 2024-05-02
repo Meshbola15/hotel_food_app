@@ -19,9 +19,11 @@ import ProfileList from "../Components/ProfileList";
 import { AppStateContext } from "../Context/Context";
 import { COLORS } from "../Data/Data";
 import { StatusBar } from "expo-status-bar";
+import { useNavigation } from "@react-navigation/native";
 
 const Person = () => {
   const { isDark, setisDark } = useContext(AppStateContext);
+  const navigation = useNavigation()
   return (
     <SafeAreaView
       style={{
@@ -201,6 +203,10 @@ const Person = () => {
           />
         </View>
         <TouchableOpacity
+
+        onPress={()=>{
+          navigation.navigate("Login")
+        }}
           style={{
             marginVertical: 5,
             alignSelf: "center",

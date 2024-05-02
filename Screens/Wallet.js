@@ -1,23 +1,18 @@
 import {
-  StyleSheet,
   Text,
   View,
   SafeAreaView,
   Image,
   TouchableOpacity,
-  Touchable,
   Pressable,
-  FlatList,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import AntDesign from "@expo/vector-icons/AntDesign";
 import React, { useState, useContext } from "react";
 import { AppStateContext } from "../Context/Context";
 import { StatusBar } from "expo-status-bar";
-import { recentPayments, COLORS, walletIconList } from "../Data/Data";
+import { COLORS, walletIconList } from "../Data/Data";
 import PaymentTools from "../Components/PaymentTools";
-import Statusbarcon from "../Components/Statusbarcon";
 
 const Wallet = () => {
   const navigation = useNavigation();
@@ -189,8 +184,9 @@ const Wallet = () => {
             width: "100%",
           }}
         >
-          {walletIconList.map((item) => (
+          {walletIconList.map(( item ) => (
             <PaymentTools
+              // key={}
               icon={item.iconImage}
               name={item.iconName}
               pageLink={item.pageLink}
