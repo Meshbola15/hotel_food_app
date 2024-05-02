@@ -1,6 +1,5 @@
 import {
   FlatList,
-  Image,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -8,18 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import AntDesign from "react-native-vector-icons/AntDesign";
 import { hotels, suggestions, COLORS } from "../Data/Data";
 import Statusbarcon from "../Components/Statusbarcon";
 import { AppStateContext } from "../Context/Context";
+import HomeList from "../Components/HomeList";
+import HomeHeaderList from "../Components/HomeHeader";
 
 const Home = () => {
-  const [state, setstate] = useState(true);
-  const navigation = useNavigation();
   const { isDark } = useContext(AppStateContext);
   return (
     <SafeAreaView
@@ -28,60 +24,9 @@ const Home = () => {
         flex: 1,
       }}
     >
-      <StatusBar style={isDark ? "light" : "dark"} translucent animated />
       <ScrollView>
-        <Statusbarcon
-          style={isDark ? "light" : "dark"}
-          backgroundColor={isDark ? COLORS.black : COLORS.white}
-        />
-        <View
-          style={{
-            flexDirection: "row-reverse",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginVertical: 50,
-            marginTop: 60,
-          }}
-        >
-          <TouchableOpacity
-            style={styles.headerBtns}
-            onPress={() => navigation.navigate("Menu")}
-          >
-            <Ionicons
-              name="ios-notifications-outline"
-              size={20}
-              color={isDark ? COLORS.white : COLORS.black}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.headerBtns}>
-            <AntDesign
-              name="menufold"
-              size={20}
-              color={isDark ? COLORS.white : COLORS.black}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.HomeContainer}>
-          <Text
-            style={{
-              fontSize: 40,
-              fontWeight: "200",
-              color: `${isDark ? COLORS.white : COLORS.black}`,
-            }}
-          >
-            Explore this
-          </Text>
-          <Text
-            style={{
-              fontSize: 60,
-              color: `${isDark ? COLORS.white : COLORS.black}`,
-              fontWeight: "900",
-            }}
-          >
-            Fantastic Earth
-          </Text>
-        </View>
-
+        <Statusbarcon style={isDark ? "light" : "dark"} />
+        <HomeHeaderList />
         <FlatList
           data={suggestions}
           horizontal={true}
@@ -126,96 +71,7 @@ const Home = () => {
             horizontal={true}
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Details", { item })}
-                style={{
-                  height: 400,
-                  width: 300,
-                  borderRadius: 30,
-                  position: "relative",
-                  marginLeft: 20,
-                }}
-              >
-                <Image
-                  source={item.image}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    resizeMode: "cover",
-                    borderRadius: 30,
-                  }}
-                />
-                <TouchableOpacity
-                  style={{
-                    height: 40,
-                    position: "absolute",
-                    top: 10,
-                    right: 10,
-                    width: 40,
-                    borderRadius: 100 / 2,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundColor: "rgba(212, 212, 212, .5)",
-                  }}
-                >
-                  <Ionicons name="md-heart" color="#32b3ae" size={20} />
-                </TouchableOpacity>
-                <View
-                  style={{
-                    position: "absolute",
-                    bottom: 20,
-                    left: 0,
-                    right: 0,
-                    paddingHorizontal: 15,
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    // width: "80%",
-                  }}
-                >
-                  <View>
-                    <Text
-                      style={{
-                        color: COLORS.white,
-                        fontSize: 30,
-                        fontWeight: "900",
-                      }}
-                    >
-                      {item.name}
-                    </Text>
-                    <Text
-                      style={{
-                        color: "white",
-                        fontSize: 20,
-                        fontWeight: "600",
-                      }}
-                    >
-                      {item.location}
-                    </Text>
-                  </View>
-
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
-                  >
-                    <AntDesign name="star" color="#face5f" size={20} />
-                    <Text
-                      style={{
-                        color: "white",
-                        fontSize: 20,
-                        fontWeight: "normal",
-                        marginLeft: 5,
-                      }}
-                    >
-                      {item.rating}
-                    </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            )}
+            renderItem={({ item }) => <HomeList item={item} />}
           />
         </View>
       </ScrollView>
@@ -224,14 +80,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  headerBtns: {
-    paddingHorizontal: 20,
-  },
-
-  HomeContainer: {
-    textAlign: "left",
-    paddingHorizontal: 20,
-  },
-});

@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import React, { useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AppStateContext } from "../Context/Context";
@@ -40,8 +40,8 @@ const ProfileList = ({ icon, title, page }) => {
           {title}
         </Text>
       </View>
-      <Ionicons
-        name="md-chevron-forward"
+      <MaterialIcons
+        name="arrow-forward-ios"
         size={20}
         color={isDark ? COLORS.white : COLORS.black}
       />

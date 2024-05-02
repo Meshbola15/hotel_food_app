@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 // import { useNavigation } from "@react-navigation/native";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Fontisto from "@expo/vector-icons/Fontisto";
 import React, { useContext } from "react";
 import { AppStateContext } from "../Context/Context";
 import { COLORS } from "../Data/Data";
@@ -137,7 +137,7 @@ const Details = ({ route, navigation }) => {
               backgroundColor: "rgba(212, 212, 212, .5)",
             }}
           >
-            <Ionicons name="md-heart" color="#32b3ae" size={30} />
+            <Fontisto name="heart" color="#32b3ae" size={30} />
           </TouchableOpacity>
           <TouchableOpacity
             style={{

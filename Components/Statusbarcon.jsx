@@ -3,7 +3,14 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 
 const Statusbarcon = ({ style, backgroundColor }) => {
-  return <StatusBar style={style} backgroundColor={backgroundColor} />;
+  return (
+    <StatusBar
+      style={style}
+      backgroundColor={backgroundColor}
+      translucent
+      animated
+    />
+  );
 };
 
 export default Statusbarcon;

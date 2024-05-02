@@ -4,10 +4,10 @@
     "slug": "hotel-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash.png",
+    "icon": "./assets/splash.svg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/hotel.gif",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

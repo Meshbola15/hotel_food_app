@@ -10,12 +10,12 @@ import {
   FlatList,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import AntDesign from "react-native-vector-icons/AntDesign";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import React, { useState, useContext } from "react";
 import { AppStateContext } from "../Context/Context";
 import { StatusBar } from "expo-status-bar";
-import { recentPayments, COLORS } from "../Data/Data";
+import { recentPayments, COLORS, walletIconList } from "../Data/Data";
 import PaymentTools from "../Components/PaymentTools";
 import Statusbarcon from "../Components/Statusbarcon";
 
@@ -101,7 +101,7 @@ const Wallet = () => {
           marginTop: 30,
         }}
       >
-        <Text
+        {/* <Text
           style={{
             fontSize: 25,
             fontWeight: "700",
@@ -153,8 +153,7 @@ const Wallet = () => {
               </Text>
             </View>
           )}
-        />
-
+        /> ` 
         <Pressable
           style={{
             alignSelf: "flex-end",
@@ -169,9 +168,9 @@ const Wallet = () => {
               color: `${isDark ? COLORS.white : COLORS.black}`,
             }}
           >
-            Readmore
+            Read more
           </Text>
-        </Pressable>
+        </Pressable> */}
 
         <Text
           style={{
@@ -185,75 +184,18 @@ const Wallet = () => {
         </Text>
         <View
           style={{
-            flexWrap: "wrap",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "center",
+            width: "100%",
           }}
         >
-          <PaymentTools
-            icon={<AntDesign name="scan1" size={50} color="black" />}
-            name="Scan"
-          />
-          <PaymentTools
-            icon={
-              <Image
-                source={require("../assets/send-money.png")}
-                style={{
-                  width: 50,
-                  height: 50,
-                }}
-              />
-            }
-            name="Send"
-          />
-          <PaymentTools
-            icon={
-              <Image
-                source={require("../assets/receive-money.png")}
-                style={{
-                  width: 50,
-                  height: 50,
-                }}
-              />
-            }
-            name="Receive"
-          />
-          <PaymentTools
-            icon={
-              <Image
-                source={require("../assets/money.png")}
-                style={{
-                  width: 50,
-                  height: 50,
-                }}
-              />
-            }
-            name="History"
-          />
-          <PaymentTools
-            icon={
-              <Image
-                source={require("../assets/card.png")}
-                style={{
-                  width: 50,
-                  height: 50,
-                }}
-              />
-            }
-            name="Pay"
-          />
-          <PaymentTools
-            icon={
-              <Image
-                source={require("../assets/credit-card.png")}
-                style={{
-                  width: 50,
-                  height: 50,
-                }}
-              />
-            }
-            name="Card"
-          />
+          {walletIconList.map((item) => (
+            <PaymentTools
+              icon={item.iconImage}
+              name={item.iconName}
+              pageLink={item.pageLink}
+            />
+          ))}
         </View>
       </View>
     </SafeAreaView>

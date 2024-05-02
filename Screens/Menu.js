@@ -9,7 +9,7 @@ import {
 import React, { useContext } from "react";
 import { message, COLORS } from "../Data/Data";
 import { useNavigation } from "@react-navigation/native";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { AppStateContext } from "../Context/Context";
 
 const Menu = () => {

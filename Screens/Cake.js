@@ -1,4 +1,4 @@
-import Octicons from "react-native-vector-icons/Octicons";
+import Octicons from "@expo/vector-icons/Octicons";
 import {
   FlatList,
   Image,
@@ -11,8 +11,8 @@ import {
 import React, { useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import AntDesign from "react-native-vector-icons/AntDesign";
+import Fontisto from "@expo/vector-icons/Fontisto";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { COLORS, foods, hotels, suggestions } from "../Data/Data";
 import { AppStateContext } from "../Context/Context";
 
@@ -166,7 +166,7 @@ const Cake = () => {
                     backgroundColor: "rgba(212, 212, 212, .5)",
                   }}
                 >
-                  <Ionicons name="md-heart" color="#32b3ae" size={20} />
+                  <Fontisto name="heart" color="#32b3ae" size={20} />
                 </TouchableOpacity>
                 <View
                   style={{

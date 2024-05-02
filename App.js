@@ -1,3 +1,4 @@
+// import "react-native-gesture-handler";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
@@ -9,6 +10,7 @@ import Favourite from "./Screens/Favourite";
 import AppStateProvider from "./Context/Context";
 import Profile from "./Screens/Profile";
 import Settings from "./Screens/Settings";
+import HistoryPage from "./Screens/History";
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -27,6 +29,7 @@ const App = () => {
           <Stack.Screen name="Favourite" component={Favourite} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Settings" component={Settings} />
+          <Stack.Screen name="History" component={HistoryPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppStateProvider>

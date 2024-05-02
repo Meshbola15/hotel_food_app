@@ -9,12 +9,12 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useContext } from "react";
-import Feather from "react-native-vector-icons/Feather";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import Octicons from "react-native-vector-icons/Octicons";
-import Entypo from "react-native-vector-icons/Entypo";
+import Feather from "@expo/vector-icons/Feather";
+// import Fontisto from "@expo/vector-icons/Fontisto";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Octicons from "@expo/vector-icons/Octicons";
+import Entypo from "@expo/vector-icons/Entypo";
 import ProfileList from "../Components/ProfileList";
 import { AppStateContext } from "../Context/Context";
 import { COLORS } from "../Data/Data";
@@ -148,8 +148,8 @@ const Person = () => {
           <ProfileList
             page="Menu"
             icon={
-              <Ionicons
-                name="notifications-outline"
+              <MaterialIcons
+                name="notifications"
                 size={20}
                 color={isDark ? COLORS.white : COLORS.black}
               />
@@ -244,7 +244,7 @@ const Person = () => {
         {isDark ? (
           <Entypo name="light-up" size={20} color="white" />
         ) : (
-          <Ionicons name="moon-sharp" size={20} color="white" />
+          <Feather name="moon" size={20} color="white" />
         )}
       </TouchableOpacity>
     </SafeAreaView>

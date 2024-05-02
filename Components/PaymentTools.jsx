@@ -1,34 +1,55 @@
-import { View, Text, Pressable, TouchableOpacity } from "react-native";
+import { View, Text, Pressable, TouchableOpacity, Image } from "react-native";
 import React, { useContext } from "react";
 import { AppStateContext } from "../Context/Context";
 import { COLORS } from "../Data/Data";
+import { Colors } from "react-native/Libraries/NewAppScreen";
+import { useNavigation } from "@react-navigation/native";
 
-const PaymentTools = ({ icon, name }) => {
+const PaymentTools = ({ icon, name, pageLink }) => {
+  const navigation = useNavigation();
   const { isDark } = useContext(AppStateContext);
   return (
-    <TouchableOpacity
+    <Pressable
+      onPress={() => navigation.navigate(`${pageLink}`)}
       style={{
+        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 15,
-        width: 110,
-        height: 110,
-        elevation: 3,
-        backgroundColor: "white",
+        justifyContent: "flex-start",
+        // borderRadius: 30,
+        // height: 110,
+        paddingHorizontal: 20,
+        paddingVertical: 25,
+        // backgroundColor: "white",
+        borderBottomWidth: 1,
+        borderBottomColor: COLORS.gray,
         margin: 5,
-        backgroundColor: `${isDark ? COLORS.gray : COLORS.white}`,
+        // backgroundColor: `${isDark ? COLORS.gray : COLORS.white}`,
       }}
     >
-      {icon}
+      <View
+        style={{
+          marginRight: 20,
+        }}
+      >
+        <Image
+          source={icon}
+          style={{
+            width: 30,
+            height: 30,
+            tintColor: `${isDark ? COLORS.white : COLORS.black}`,
+          }}
+        />
+      </View>
       <Text
         style={{
           fontSize: 18,
-          marginTop: 10,
+          // marginTop: 10,
+          color: `${isDark ? COLORS.white : COLORS.black}`,
         }}
       >
         {name}
       </Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
